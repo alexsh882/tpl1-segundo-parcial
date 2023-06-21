@@ -3,6 +3,27 @@ const Reserva = require("../models/Reserva");
 const ctrlReservas = {};
 
 // ==========================================
+//         Rutas VISTAS de reservas
+// ==========================================
+ctrlReservas.indexView = (_req, res) => {
+  res.render("index");
+};
+
+ctrlReservas.showView = (req, res) => {
+  const reservaId = req.params.id;
+  res.render("reservas/show", { id: reservaId });
+};
+
+ctrlReservas.createView = (_req, res) => {
+  res.render("reservas/create");
+};
+
+ctrlReservas.editView = (req, res) => {
+  const reservaId = req.params.id;
+  res.render("reservas/edit", { id: reservaId });
+};
+
+// ==========================================
 //         Rutas para CRUD de reservas
 // ==========================================
 

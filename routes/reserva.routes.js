@@ -10,26 +10,28 @@ const router = require('express').Router();
 // ==========================================
 
 // Obtener todas las reservas
-
+router.get("/", ctrlReservas.indexView);
 // Formulario para crear una reserva
+router.get("/reservas/create", ctrlReservas.createView);
 
 // Formulario para actualizar una reserva
+router.get("/reservas/:id/edit", ctrlReservas.editView);
 
 // ==========================================
 //         Rutas para CRUD de reservas
 // ==========================================
 
 // Obtener todas las reservas
-router.get('/api/reservas',);
+router.get('/api/reservas', ctrlReservas.index);
  
 // Crear una reserva
-router.post('/api/reservas',);
+router.post('/api/reservas', ctrlReservas.store);
  
 // Actualizar una reserva
-router.put('/api/reservas/:id',);
+router.put('/api/reservas/:id',  ctrlReservas.update);
  
 // Eliminar una reserva de forma lógica
-router.delete('/api/reservas/:id',);
+router.delete('/api/reservas/:id',  ctrlReservas.destroy);
 
  
  module.exports = router;
