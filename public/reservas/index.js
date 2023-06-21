@@ -34,7 +34,7 @@ const showReservas = (reservas) => {
                       ${reserva.code}
                     </td>
                     <td>
-                      ${reserva.date}
+                    ${reserva.date.split('T')[0].split('-')[2]}/${reserva.date.split('T')[0].split('-')[1]}/${reserva.date.split('T')[0].split('-')[0]}
                     </td>
                     <td>
                       <a href="/reservas/${reserva.id}/edit" class="btn btn-outline-success">Editar</a>
@@ -62,7 +62,7 @@ const deleteReserva = async (event) => {
     if (result.isConfirmed) {
 
       try {
-        const res = await fetch(`http://localhost:8000/api/reservas/${id}/destroy`, {
+        const res = await fetch(`http://localhost:8000/api/reservas/${id}`, {
           method: 'DELETE'
         });
 
