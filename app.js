@@ -18,11 +18,7 @@ app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 
 
-
-
-
 // Middlewares
-// TODO: Implementar middlewares
 app.use(cors());
 app.use(
   helmet({
@@ -30,7 +26,6 @@ app.use(
   })
 );
 app.use(morgan("dev"));
-
 
 // carpeta para archivos estáticos
 app.use(express.static(path.join(__dirname, "public")));
@@ -43,13 +38,15 @@ sequelize.authenticate()
  })
   .catch((error) => console.log('Error al conectar a base de datos', error));
 
-
-
-
 // Routes
 app.use("/", require("./routes/reserva.routes"));
 
 // TODO: Si la petición no coincide con ninguna de las rutas declaradas, mostrar error 404
+
+// 404 - Not found
+app.use((_req, res, next) => {
+  res.render('errors/404')
+});
 
 // Starting the server
 app.listen(process.env.PORT, () => console.log(`Servidor en http://localhost:${process.env.PORT}`));
