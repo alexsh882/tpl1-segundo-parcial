@@ -27,6 +27,9 @@ router.get('/api/reservas', ctrlReservas.index);
 // Crear una reserva
 router.post('/api/reservas', ctrlReservas.store);
  
+// obtener una reserva
+router.get('/api/reservas/:id',  ctrlReservas.show);
+
 // Actualizar una reserva
 router.put('/api/reservas/:id',  ctrlReservas.update);
  
