@@ -24,4 +24,6 @@ const Reserva = sequelize.define(
   }
 );
 
+Reserva.sync()
+
 module.exports = Reserva;
