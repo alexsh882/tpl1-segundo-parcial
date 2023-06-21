@@ -28,7 +28,7 @@ const showReservas = (reservas) => {
                       ${reserva.id}
                     </th>
                     <td>
-                      ${reserva.fullName}
+                      ${reserva.fullname}
                     </td>
                     <td>
                       ${reserva.code}
@@ -36,7 +36,6 @@ const showReservas = (reservas) => {
                     <td>
                       ${reserva.date}
                     </td>
-                    <td>Categoria 1</td>
                     <td>
                       <a href="/reservas/${reserva.id}/edit" class="btn btn-outline-success">Editar</a>
                       <button onclick=deleteReserva(event) class="btn btn-outline-danger" data-id="${reserva.id}">Eliminar</button>

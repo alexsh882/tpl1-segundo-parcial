@@ -71,11 +71,13 @@ ctrlReservas.store = async (req, res) => {
   const { fullname, code, date } = req.body;
 
   try {
-    const [reserva, created] = await Reserva.create({
+    const reserva = await Reserva.create({
       fullname,
       code,
-      date,
+      date
     });
+
+    console.log(reserva);
 
     if (!reserva) {
       throw {

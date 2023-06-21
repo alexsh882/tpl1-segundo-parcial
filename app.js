@@ -27,6 +27,9 @@ app.use(
 );
 app.use(morgan("dev"));
 
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
 // carpeta para archivos estáticos
 app.use(express.static(path.join(__dirname, "public")));
 
